@@ -51,28 +51,68 @@ export default function PlayerSelectState({
         </p>
         
         {/* Player character selection grid */}
-        <div className="flex gap-8 justify-center flex-wrap">
-          {players.map((player: PlayerData) => (
-            <Card key={player.id} className="max-w-sm">
-              <div className="text-center">
-                {/* Character emoji avatar */}
-                <div className="text-6xl mb-4">{player.emoji}</div>
-                
-                {/* Character name */}
-                <h2 className="text-3xl font-bold text-white mb-4">{player.name}</h2>
+        <div className="max-w-7xl mx-auto">
+          {/* First row - 8 players */}
+          <div className="grid grid-cols-8 gap-4 mb-6">
+            {players.slice(0, 8).map((player: PlayerData) => (
+              <Card key={player.id} className="w-40 h-52 flex-shrink-0">
+                <div className="h-full flex flex-col justify-between">
+                  <div className="flex flex-col items-center">
+                    {/* Character emoji avatar */}
+                    <div className="text-4xl mb-2 text-center">{player.emoji}</div>
+                    
+                    {/* Character name */}
+                    <h2 className="text-lg font-bold text-white mb-2 text-center leading-tight">{player.name}</h2>
 
-                <ul className="text-xl text-white mb-4">{player.description}</ul>
-                
-                {/* Selection button with character-specific styling */}
-                <Button
-                  onClick={() => onPlayerSelect(player.id as Player)}
-                  variant={'success'}
-                >
-                  Play as {player.name}
-                </Button>
-              </div>
-            </Card>
-          ))}
+                    {/* Description with fixed height */}
+                    <div className="text-sm text-white text-center h-10 flex items-center justify-center px-1">{player.description}</div>
+                  </div>
+                  
+                  {/* Selection button always at bottom */}
+                  <div className="flex justify-center w-full mt-auto">
+                    <Button
+                      onClick={() => onPlayerSelect(player.id as Player)}
+                      variant={'success'}
+                      size="sm"
+                    >
+                      Play
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          
+          {/* Second row - 8 players */}
+          <div className="grid grid-cols-8 gap-4">
+            {players.slice(8).map((player: PlayerData) => (
+              <Card key={player.id} className="w-40 h-52 flex-shrink-0">
+                <div className="h-full flex flex-col justify-between">
+                  <div className="flex flex-col items-center">
+                    {/* Character emoji avatar */}
+                    <div className="text-4xl mb-2 text-center">{player.emoji}</div>
+                    
+                    {/* Character name */}
+                    <h2 className="text-lg font-bold text-white mb-2 text-center leading-tight">{player.name}</h2>
+
+                    {/* Description with fixed height */}
+                    <div className="text-sm text-white text-center h-10 flex items-center justify-center px-1">{player.description}</div>
+                  </div>
+                  
+                  {/* Selection button always at bottom */}
+                  <div className="flex justify-center w-full mt-auto">
+                    <Button
+                      onClick={() => onPlayerSelect(player.id as Player)}
+                      variant={'success'}
+                      size="sm"
+                    >
+                      Play
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
         
         {/* Back to menu navigation */}

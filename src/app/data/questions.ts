@@ -406,12 +406,27 @@ const sarkieQuestions: Question[] = [
   },
 ];
 
+const exampleQuestions: Question[] = [
+  {
+    id: 181,
+    question: "Who is considered the father of psychoanalysis?",
+    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    correctAnswer: 0
+  },
+];
 
 // ...existing code..
   // ...other players...
 
 // Player database - easily add new players here
 export const players: Record<string, PlayerData> = {
+  example: {
+    id: 'example',
+    name: 'Example',
+    emoji: '🙂',
+    description: 'Example Description',
+    questions: exampleQuestions
+  },
   jamie: {
     id: 'jamie',
     name: 'Jamie',
@@ -423,7 +438,7 @@ export const players: Record<string, PlayerData> = {
     id: 'seth',
     name: 'Seth',
     emoji: '🐳',
-    description: 'Pokemon Gen 3-6',
+    description: 'Pokemon Gen3-6',
     questions: sethQuestions
   },
   samC: {
@@ -479,7 +494,7 @@ export const players: Record<string, PlayerData> = {
     id: 'harry',
     name: 'Harry',
     emoji: '💂‍♂️',
-    description: 'American Civil War',
+    description: 'US Civil War',
     questions: harryQuestions
   },
   benW: {
