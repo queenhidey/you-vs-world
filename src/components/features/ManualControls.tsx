@@ -25,6 +25,8 @@ interface ManualControlsProps {
   onPlayerNoAnswer: () => void;
   /** Callback when chaser doesn't make a selection */
   onChaserNoAnswer: () => void;
+  /** Callback to go back to player selection and clear game data */
+  onBackToPlayerSelect?: () => void;
   /** Whether the player has already answered the current question */
   playerAnswered: boolean;
   /** Whether the chaser has already made their selection */
@@ -48,6 +50,7 @@ export default function ManualControls({
   onUnadvanceChaser,
   onPlayerNoAnswer,
   onChaserNoAnswer,
+  onBackToPlayerSelect,
   playerAnswered,
   chaserHasPicked
 }: ManualControlsProps) {
@@ -92,6 +95,19 @@ export default function ManualControls({
         >
           Chaser&apos;s Didn&apos;t Answer ⏭️
         </Button>
+        
+        {/* Back to Player Select Button */}
+        {onBackToPlayerSelect && (
+          <>
+            <div className="border-t border-white/20 my-3"></div>
+            <Button 
+              variant="secondary"
+              onClick={onBackToPlayerSelect}
+            >
+              ← Back to Player Select
+            </Button>
+          </>
+        )}
       </div>
     </Card>
   );

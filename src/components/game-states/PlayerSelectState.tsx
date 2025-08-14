@@ -61,7 +61,7 @@ export default function PlayerSelectState({
                 {/* Character name */}
                 <h2 className="text-3xl font-bold text-white mb-4">{player.name}</h2>
 
-                <ul className="text-white mb-4">{player.description}</ul>
+                <ul className="text-xl text-white mb-4">{player.description}</ul>
                 
                 {/* Selection button with character-specific styling */}
                 <Button

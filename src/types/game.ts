@@ -136,6 +136,8 @@ export interface ChaseGameProps {
   onGameEnd: () => void;
   /** The selected player character */
   selectedPlayer: Player;
+  /** Callback to return to player select screen (optional) */
+  onBackToPlayerSelect?: () => void;
 }
 
 /**

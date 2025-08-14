@@ -69,7 +69,7 @@ export default function Home() {
 
   // Render the game if both conditions are met
   if (gameStarted && selectedPlayer) {
-    return <ChaseGame onGameEnd={handleGameEnd} selectedPlayer={selectedPlayer} />;
+    return <ChaseGame onGameEnd={handleGameEnd} selectedPlayer={selectedPlayer} onBackToPlayerSelect={handleGameEnd} />;
   }
 
   // Render player selection screen

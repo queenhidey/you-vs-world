@@ -39,6 +39,7 @@ interface PlayingStateProps {
   onUnadvanceChaser: () => void;
   onPlayerNoAnswer: () => void;
   onChaserNoAnswer: () => void;
+  onBackToPlayerSelect?: () => void;
 }
 
 export default function PlayingState({
@@ -69,7 +70,8 @@ export default function PlayingState({
   onUnadvancePlayer,
   onUnadvanceChaser,
   onPlayerNoAnswer,
-  onChaserNoAnswer
+  onChaserNoAnswer,
+  onBackToPlayerSelect
 }: PlayingStateProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 p-4">
@@ -100,6 +102,7 @@ export default function PlayingState({
               onChaserNoAnswer={onChaserNoAnswer}
               playerAnswered={playerAnswer !== null}
               chaserHasPicked={chaserHasPicked}
+              onBackToPlayerSelect={onBackToPlayerSelect}
             />
           </div>
 

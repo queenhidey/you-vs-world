@@ -38,7 +38,7 @@ import { PlayingState, GameResultState } from '../game-states';
  * - Timer management with audio cues
  * - Multi-phase answer handling (player → chaser → reveal)
  */
-export default function ChaseGame({ onGameEnd, selectedPlayer }: ChaseGameProps) {
+export default function ChaseGame({ onGameEnd, selectedPlayer, onBackToPlayerSelect }: ChaseGameProps) {
   // POSITION STATE
   /** Current player position on the board (-1 = not set, 0-9 = positions) */
   const [playerPosition, setPlayerPosition] = useState(-1);
@@ -305,6 +305,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer }: ChaseGameProps)
       onUnadvanceChaser={handleUnadvanceChaser}
       onPlayerNoAnswer={handlePlayerNoAnswer}
       onChaserNoAnswer={handleChaserNoAnswer}
+      onBackToPlayerSelect={onBackToPlayerSelect}
     />
   );
 }

@@ -372,6 +372,40 @@ const benWQuestions: Question[] = [
   },
 ];
 
+const berboQuestions: Question[] = [
+  {
+    id: 166,
+    question: "Who is considered the father of psychoanalysis?",
+    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    correctAnswer: 0
+  },
+];
+
+const benGQuestions: Question[] = [
+  {
+    id: 181,
+    question: "Who is considered the father of psychoanalysis?",
+    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    correctAnswer: 0
+  },
+];
+const livQuestions: Question[] = [
+  {
+    id: 196,
+    question: "Who is considered the father of psychoanalysis?",
+    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    correctAnswer: 0
+  },
+];
+const sarkieQuestions: Question[] = [
+  {
+    id: 211,
+    question: "Who is considered the father of psychoanalysis?",
+    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    correctAnswer: 0
+  },
+];
+
 
 // ...existing code..
   // ...other players...
@@ -454,6 +488,34 @@ export const players: Record<string, PlayerData> = {
     emoji: '🧜‍♂️',
     description: 'Greek Mythology',
     questions: benWQuestions
+  },
+  berbo: {
+    id: 'berbo',
+    name: 'Berbo',
+    emoji: '🦔',
+    description: 'Sonic',
+    questions: berboQuestions
+  },
+  benG: {
+    id: 'benG',
+    name: 'Ben G',
+    emoji: '🏆',
+    description: 'LoL Esports',
+    questions: benGQuestions
+  },
+  liv: {
+    id: 'liv',
+    name: 'Liv',
+    emoji: '👱‍♀️',
+    description: 'Taylor Swift',
+    questions: livQuestions
+  },
+  sarkie: {
+    id: 'sarkie',
+    name: 'Sarkie',
+    emoji: '👨‍🌾',
+    description: 'Stardew Valley',
+    questions: sarkieQuestions
   }
   // To add a new player, simply add a new entry here:
   // newPlayer: {
