@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
-import GameBoard from '../src/app/components/GameBoard'
+import GameBoard from '../src/components/features/GameBoard'
 
 describe('GameBoard Component', () => {
   const defaultProps = {

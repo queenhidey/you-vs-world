@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
-import ChaseGame from '../src/app/components/ChaseGame'
+import ChaseGame from '../src/components/features/ChaseGame'
 import type { Player } from '../src/app/data/questions'
 import { playerIds, getPlayer } from '../src/app/data/questions'
 
 // Mock the child components
-vi.mock('../src/app/components/QuestionCard', () => ({
+vi.mock('../src/components/features/QuestionCard', () => ({
   default: ({ question, onAnswer, onChaserPick }: any) => (
     <div data-testid="question-card">
       <div>{question?.question}</div>
@@ -15,8 +15,8 @@ vi.mock('../src/app/components/QuestionCard', () => ({
   )
 }))
 
-vi.mock('../src/app/components/GameBoard', () => ({
-  default: ({ playerPosition, chaserPosition, onPlayerStartPositionChange, onStepLabelChange }: any) => (
+vi.mock('../src/components/features/GameBoard', () => ({
+  default: ({ playerPosition, chaserPosition, onPlayerStartPositionChange, onStepLabelChange, stepLabels }: any) => (
     <div data-testid="game-board">
       <div>Player: {playerPosition}</div>
       <div>Chaser: {chaserPosition}</div>
@@ -24,17 +24,44 @@ vi.mock('../src/app/components/GameBoard', () => ({
         data-testid="step-input-3"
         onChange={(e) => onStepLabelChange?.(3, e.target.value)}
         placeholder="Step 3"
+        value=""
       />
       <input 
         data-testid="step-input-4"
         onChange={(e) => onStepLabelChange?.(4, e.target.value)}
         placeholder="Step 4"
+        value=""
       />
       <input 
         data-testid="step-input-5"
         onChange={(e) => onStepLabelChange?.(5, e.target.value)}
         placeholder="Step 5"
+        value=""
       />
+      {stepLabels?.[3] && (
+        <button 
+          onClick={() => onPlayerStartPositionChange?.(3, stepLabels[3])}
+          data-testid="setup-button-3"
+        >
+          Select position 3: {stepLabels[3]}
+        </button>
+      )}
+      {stepLabels?.[4] && (
+        <button 
+          onClick={() => onPlayerStartPositionChange?.(4, stepLabels[4])}
+          data-testid="setup-button-4"
+        >
+          Select position 4: {stepLabels[4]}
+        </button>
+      )}
+      {stepLabels?.[5] && (
+        <button 
+          onClick={() => onPlayerStartPositionChange?.(5, stepLabels[5])}
+          data-testid="setup-button-5"
+        >
+          Select position 5: {stepLabels[5]}
+        </button>
+      )}
       <button 
         onClick={() => onPlayerStartPositionChange?.(3, 'TestLabel')}
         data-testid="setup-button"

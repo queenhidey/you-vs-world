@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
-import QuestionCard from '../src/app/components/QuestionCard'
+import QuestionCard from '../src/components/features/QuestionCard'
 import type { Question } from '../src/app/data/questions'
 import { beforeEach } from 'vitest'
 
@@ -16,7 +16,6 @@ describe('QuestionCard Component', () => {
     question: mockQuestion,
     onAnswer: vi.fn(),
     onChaserPick: vi.fn(),
-    showResult: false,
     disabled: false,
     showCorrectAnswer: false,
     playerDidntAnswer: false
@@ -75,7 +74,7 @@ describe('QuestionCard Component', () => {
 
   describe('Chaser Selection Phase', () => {
     it('should have consistent styling during chaser selection', () => {
-      render(<QuestionCard {...defaultProps} showResult={true} />)
+      render(<QuestionCard {...defaultProps} />)
       
       const questionCard = screen.getByText(mockQuestion.question).closest('div')
       expect(questionCard).toHaveClass('bg-white/10')
@@ -86,7 +85,6 @@ describe('QuestionCard Component', () => {
       render(
         <QuestionCard 
           {...defaultProps} 
-          showResult={true} 
           onChaserPick={mockOnChaserPick} 
         />
       )
@@ -101,7 +99,7 @@ describe('QuestionCard Component', () => {
     })
 
     it('should have consistent styling during chaser selection phase', () => {
-      render(<QuestionCard {...defaultProps} showResult={true} />)
+      render(<QuestionCard {...defaultProps} />)
       
       // Check that the question is displayed
       expect(screen.getByText(mockQuestion.question)).toBeInTheDocument()
@@ -118,7 +116,6 @@ describe('QuestionCard Component', () => {
       render(
         <QuestionCard 
           {...defaultProps} 
-          showResult={true} 
           showCorrectAnswer={true} 
         />
       )
@@ -131,7 +128,6 @@ describe('QuestionCard Component', () => {
       render(
         <QuestionCard 
           {...defaultProps} 
-          showResult={true} 
           showCorrectAnswer={true} 
         />
       )
@@ -147,7 +143,6 @@ describe('QuestionCard Component', () => {
       render(
         <QuestionCard 
           {...defaultProps} 
-          showResult={true} 
           showCorrectAnswer={true}
           playerDidntAnswer={true}
         />
@@ -196,7 +191,6 @@ describe('QuestionCard Component', () => {
       rerender(
         <QuestionCard 
           {...defaultProps} 
-          showResult={true} 
           showCorrectAnswer={true} 
         />
       )

@@ -134,7 +134,6 @@ export default function PlayingState({
                     question={currentQuestion}
                     onAnswer={onAnswer}
                     onChaserPick={onChaserPick}
-                    showResult={showResult}
                     disabled={false}
                     showCorrectAnswer={showCorrectAnswer}
                     playerDidntAnswer={playerAnswer === -1}

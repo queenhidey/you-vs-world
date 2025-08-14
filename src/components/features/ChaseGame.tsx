@@ -1,3 +1,10 @@
+/**
+ * Chase Game Component
+ * 
+ * Main game orchestrator that manages the complete chase game lifecycle including
+ * setup, gameplay, timing, position tracking, and result handling.
+ */
+
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -6,34 +13,94 @@ import { getQuestionsByPlayer, getPlayer, validateAllPlayers } from '../../app/d
 import { AudioService } from '../../utils/audioService';
 import { PlayingState, GameResultState } from '../game-states';
 
+/**
+ * Main chase game orchestrator component
+ * 
+ * Coordinates the entire game experience from setup through completion:
+ * 
+ * Setup Phase:
+ * - Player selects starting position after filling custom step labels
+ * - Validates that all required setup is complete
+ * 
+ * Game Phase:
+ * - Manages question presentation and timing
+ * - Tracks player and chaser positions on board
+ * - Handles both player and chaser answer selections
+ * - Provides audio feedback for timing and actions
+ * 
+ * Result Phase:
+ * - Determines win/loss conditions
+ * - Presents final game state with appropriate messaging
+ * 
+ * State Management:
+ * - Position tracking for both player and chaser
+ * - Question rotation with uniqueness tracking
+ * - Timer management with audio cues
+ * - Multi-phase answer handling (player → chaser → reveal)
+ */
 export default function ChaseGame({ onGameEnd, selectedPlayer }: ChaseGameProps) {
+  // POSITION STATE
+  /** Current player position on the board (-1 = not set, 0-9 = positions) */
   const [playerPosition, setPlayerPosition] = useState(-1);
+  /** Current chaser position on the board (starts at 0) */
   const [chaserPosition, setChaserPosition] = useState(0);
+  
+  // GAME STATE
+  /** Overall game status determining which screen to show */
   const [gameStatus, setGameStatus] = useState<'playing' | 'won' | 'caught'>('playing');
+  /** Whether to show the final result screen */
   const [showResult, setShowResult] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(10);
-  const [timerActive, setTimerActive] = useState(false);
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-  const [chaserHasPicked, setChaserHasPicked] = useState(false);
-  const [playerAnswer, setPlayerAnswer] = useState<number | null>(null);
-  const [chaserAnswer, setChaserAnswer] = useState<number | null>(null);
+  /** Whether the actual game has started (vs setup phase) */
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [stepLabels, setStepLabels] = useState<{ [key: number]: string }>({});
-  const [playerName, setPlayerName] = useState<string>("5");
-  const [usedQuestionIds, setUsedQuestionIds] = useState<Set<number>>(new Set());
-  const [hasSelectedStartPosition, setHasSelectedStartPosition] = useState(false);
+  
+  // TIMING STATE
+  /** Seconds remaining for current question */
+  const [timeLeft, setTimeLeft] = useState(10);
+  /** Whether the countdown timer is currently active */
+  const [timerActive, setTimerActive] = useState(false);
+  
+  // QUESTION STATE
+  /** Whether to reveal the correct answer */
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  /** Whether the chaser has made their selection */
+  const [chaserHasPicked, setChaserHasPicked] = useState(false);
+  /** Player's selected answer index */
+  const [playerAnswer, setPlayerAnswer] = useState<number | null>(null);
+  /** Chaser's selected answer index */
+  const [chaserAnswer, setChaserAnswer] = useState<number | null>(null);
+  /** Currently displayed question */
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
+  /** Current question number for display */
   const [questionNumber, setQuestionNumber] = useState(1);
+  /** Set of question IDs already used to prevent repeats */
+  const [usedQuestionIds, setUsedQuestionIds] = useState<Set<number>>(new Set());
+  
+  // SETUP STATE
+  /** Custom labels for board positions (position → label mapping) */
+  const [stepLabels, setStepLabels] = useState<{ [key: number]: string }>({});
+  /** Player's chosen name/label from selected starting position */
+  const [playerName, setPlayerName] = useState<string>("5");
+  /** Whether player has selected their starting position */
+  const [hasSelectedStartPosition, setHasSelectedStartPosition] = useState(false);
 
+  // GAME CONSTANTS
   const totalSteps = 9;
   const playerQuestions = getQuestionsByPlayer(selectedPlayer);
   const playerData = getPlayer(selectedPlayer);
   const audioService = AudioService.getInstance();
 
-  // Function to get a random unused question
+  /**
+   * Get a random unused question from the player's question pool
+   * 
+   * Maintains question uniqueness by tracking used question IDs.
+   * If all questions have been used, resets the pool to allow reuse.
+   * 
+   * @returns A random question that hasn't been used recently
+   */
   const getRandomQuestion = useCallback(() => {
     const availableQuestions = playerQuestions.filter(q => !usedQuestionIds.has(q.id));
     
+    // If no unused questions remain, reset the pool
     if (availableQuestions.length === 0) {
       setUsedQuestionIds(new Set());
       return playerQuestions[Math.floor(Math.random() * playerQuestions.length)];
@@ -42,7 +109,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer }: ChaseGameProps)
     return availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
   }, [playerQuestions, usedQuestionIds]);
 
-  // Initialize first question
+  // Initialize first question when component mounts
   useEffect(() => {
     if (playerQuestions.length > 0 && !currentQuestion) {
       const firstQuestion = getRandomQuestion();
@@ -51,7 +118,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer }: ChaseGameProps)
     }
   }, [playerQuestions, currentQuestion, getRandomQuestion]);
 
-  // Validate question uniqueness on component mount
+  // Validate question data integrity on mount
   useEffect(() => {
     validateAllPlayers();
   }, []);
