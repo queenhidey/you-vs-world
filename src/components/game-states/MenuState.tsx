@@ -33,8 +33,8 @@ export default function MenuState({ onStartGame }: MenuStateProps) {
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 flex items-center justify-center p-4">
       <div className="text-center">
         {/* Main game title */}
-        <h1 className="text-6xl font-bold text-white mb-4 shadow-lg">
-          THE CHASE: YOU vs THE WORLD 
+        <h1 className="text-6xl font-bold text-white mb-8">
+          THE CHASE: YOU vs THE WORLD
         </h1>
         
         {/* Game instructions card */}

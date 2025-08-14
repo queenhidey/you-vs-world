@@ -42,11 +42,11 @@ export default function PlayerSelectState({
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 flex items-center justify-center p-4">
       <div className="text-center">
         {/* Screen title */}
-        <h1 className="text-6xl font-bold text-white mb-4 shadow-lg">
+        <h1 className="text-6xl font-bold text-white mb-4">
           THE CHASE
         </h1>
-        
-        <p className="text-xl text-white mb-8 opacity-90">
+
+        <p className="text-3xl text-red-500 mb-8">
           Choose Your Player
         </p>
         
@@ -60,12 +60,13 @@ export default function PlayerSelectState({
                 
                 {/* Character name */}
                 <h2 className="text-3xl font-bold text-white mb-4">{player.name}</h2>
+
+                <ul className="text-white mb-4">{player.description}</ul>
                 
                 {/* Selection button with character-specific styling */}
                 <Button
-                  variant={player.id === 'jimmy' ? 'primary' : 'success'}
                   onClick={() => onPlayerSelect(player.id as Player)}
-                  className="w-full"
+                  variant={'success'}
                 >
                   Play as {player.name}
                 </Button>
