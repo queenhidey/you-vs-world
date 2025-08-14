@@ -310,6 +310,12 @@ const mattQuestions: Question[] = [
     options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
     correctAnswer: 0
   },
+  {
+    id: 62,
+    question: "who farted on ma dick",
+    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    correctAnswer: 0
+  },
 ];
 
 const katieQuestions: Question[] = [
@@ -351,6 +357,15 @@ const emmyQuestions: Question[] = [
 const harryQuestions: Question[] = [
   {
     id: 136,
+    question: "Who is considered the father of psychoanalysis?",
+    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    correctAnswer: 0
+  },
+];
+
+const benWQuestions: Question[] = [
+  {
+    id: 151,
     question: "Who is considered the father of psychoanalysis?",
     options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
     correctAnswer: 0
@@ -415,7 +430,7 @@ export const players: Record<string, PlayerData> = {
   kiwi: {
     id: 'kiwi',
     name: 'Kiwi',
-    emoji: '👼',
+    emoji: '😭',
     description: 'The Binding of Isaac',
     questions: kiwiQuestions
   },
@@ -432,6 +447,13 @@ export const players: Record<string, PlayerData> = {
     emoji: '💂‍♂️',
     description: 'American Civil War',
     questions: harryQuestions
+  },
+  benW: {
+    id: 'benW',
+    name: 'Ben W',
+    emoji: '🧜‍♂️',
+    description: 'Greek Mythology',
+    questions: benWQuestions
   }
   // To add a new player, simply add a new entry here:
   // newPlayer: {
