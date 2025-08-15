@@ -59,10 +59,10 @@ export default function PlayerSelectState({
                 <div className="h-full flex flex-col justify-between">
                   <div className="flex flex-col items-center">
                     {/* Character emoji avatar */}
-                    <div className="text-5xl mb-2 text-center">{player.emoji}</div>
-                    
+                    <div className="text-5xl mb-2 text-center h-15">{player.emoji}</div>
+
                     {/* Character name */}
-                    <h2 className="text-2xl font-bold mb-3 text-center leading-tight">{player.name}</h2>
+                    <h2 className="text-2xl font-bold mb-3 text-center leading-tight h-8">{player.name}</h2>
 
                     {/* Description with fixed height */}
                     <div className="text-xl text-white text-center h-12 flex items-center justify-center px-1 mb-1">{player.description}</div>
