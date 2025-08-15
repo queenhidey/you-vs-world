@@ -17,7 +17,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Visual style variant of the button */
   variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'info';
   /** Size of the button */
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'smmd' | 'md' | 'lg';
   /** Content to display inside the button */
   children: ReactNode;
 }
@@ -56,6 +56,7 @@ export default function Button({
   // Size variations for padding and text size
   const sizeClasses = {
     sm: 'py-2 px-4 text-sm',
+    smmd: 'py-2.5 px-5 text-base',
     md: 'py-3 px-6 text-lg',
     lg: 'py-4 px-8 text-xl'
   };
