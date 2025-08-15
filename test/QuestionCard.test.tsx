@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import QuestionCard from '../src/components/features/QuestionCard'
-import type { Question } from '../src/app/data/questions'
+import type { Question } from '../src/app/data/contestantControls'
 import { beforeEach } from 'vitest'
 
 describe('QuestionCard Component', () => {

@@ -9,7 +9,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Question, ChaseGameProps } from '../../types/game';
-import { getQuestionsByPlayer, getPlayer, validateAllPlayers } from '../../app/data/questions';
+import { getQuestionsByPlayer, getPlayer, validateAllPlayers } from '../../app/data/contestantControls';
 import { AudioService } from '../../utils/audioService';
 import { PlayingState, GameResultState } from '../game-states';
 
@@ -183,7 +183,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer, onBackToPlayerSel
     setUsedQuestionIds(prev => new Set([...prev, nextQuestion.id]));
     setQuestionNumber(prev => prev + 1);
     setShowResult(false);
-    setTimeLeft(10);
+    setTimeLeft(30);
     setTimerActive(true);
     setShowCorrectAnswer(false);
     setChaserHasPicked(false);

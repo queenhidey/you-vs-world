@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import ChaseGame from '../src/components/features/ChaseGame'
-import type { Player } from '../src/app/data/questions'
-import { playerIds, getPlayer } from '../src/app/data/questions'
+import type { Player } from '../src/app/data/contestantControls'
+import { playerIds, getPlayer } from '../src/app/data/contestantControls'
 
 // Mock the child components
 vi.mock('../src/components/features/QuestionCard', () => ({

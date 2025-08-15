@@ -10,7 +10,7 @@
 import { useState } from 'react';
 import { ChaseGame } from '../components/features';
 import { MenuState, PlayerSelectState } from '../components/game-states';
-import { Player, getAllPlayers } from './data/questions';
+import { Player, getAllPlayers } from './data/contestantControls';
 
 /**
  * Main application component

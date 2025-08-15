@@ -9,7 +9,7 @@ import {
   type PlayerData,
   playerIds,
   players 
-} from '../src/app/data/questions'
+} from '../src/app/data/contestantControls'
 
 describe('Questions Data Module', () => {
   describe('Player types and basic functionality', () => {
