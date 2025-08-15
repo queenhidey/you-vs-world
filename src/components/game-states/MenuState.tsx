@@ -39,12 +39,12 @@ export default function MenuState({ onStartGame }: MenuStateProps) {
         
         {/* Game instructions card */}
         <Card className="max-w-md mx-auto">
-          <h2 className="text-2xl font-semibold text-white mb-4">How to Play</h2>
+          <h2 className="text-3xl font-semibold text-white mb-6">How to Play</h2>
           
           {/* Game rules list */}
-          <ul className="text-white text-left space-y-2 mb-6">
-            <li>• Answer questions to move forward</li>
-            <li>• Get questions wrong and the Chaser catches up</li>
+          <ul className="text-white text-left space-y-2 mb-6 text-center">
+            <li>• Answer questions to move forward!</li>
+            <li>• Get questions wrong and the Chasers might catch up!</li>
             <li>• Reach the end before being caught to win!</li>
           </ul>
           
