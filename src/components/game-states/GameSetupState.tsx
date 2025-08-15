@@ -40,7 +40,7 @@ export default function GameSetupState({
 }: GameSetupStateProps) {
   
   // Check if all required labels have been filled in
-  const allLabelsComplete = stepLabels[3] && stepLabels[5];
+  const allLabelsComplete = stepLabels[3] && stepLabels[4] && stepLabels[5];
   
   // Game can only start when both conditions are met
   const canStart = hasSelectedStartPosition && allLabelsComplete;
