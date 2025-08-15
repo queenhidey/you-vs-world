@@ -112,6 +112,7 @@ export interface QuestionCardProps {
 export interface GameBoardProps {
   /** Current player position on the board */
   playerPosition: number;
+  playerData: PlayerData;
   /** Current chaser position on the board */
   chaserPosition: number;
   /** Total number of steps on the board */

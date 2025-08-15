@@ -55,7 +55,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer, onBackToPlayerSel
   
   // TIMING STATE
   /** Seconds remaining for current question */
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(30);
   /** Whether the countdown timer is currently active */
   const [timerActive, setTimerActive] = useState(false);
   

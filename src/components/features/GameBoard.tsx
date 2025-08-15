@@ -3,12 +3,14 @@
 import { useState } from 'react';
 import { GameBoardProps } from '../../types/game';
 import { Card } from '../ui';
+import { Question, PlayerData } from '../../types/game';
 
 export default function GameBoard({ 
   playerPosition, 
   chaserPosition, 
   totalSteps, 
-  isGameStarted = true, 
+  isGameStarted = true,
+  playerData,
   onPlayerStartPositionChange, 
   stepLabels = {}, 
   onStepLabelChange
@@ -112,7 +114,7 @@ export default function GameBoard({
             ) : isPlayerHere && isChaserHere ? (
               "💥"
             ) : isPlayerHere ? (
-              "🧑"
+              playerData.emoji
             ) : isChaserHere ? (
               "👹"
             ) : isBelowChaser ? (
@@ -147,7 +149,7 @@ export default function GameBoard({
         <div className="flex justify-between text-white mb-6 text-sm">
           <div className="text-center">
             <div className="font-bold flex items-center justify-center gap-1">
-              🧑 <span>Player</span>
+              {playerData.emoji} <span>{playerData.name}</span>
             </div>
             <div>Pos: {playerPosition}/{totalSteps}</div>
             <div className="text-xs opacity-75">
@@ -156,7 +158,7 @@ export default function GameBoard({
           </div>
           <div className="text-center">
             <div className="font-bold flex items-center justify-center gap-1">
-              👹 <span>Chaser</span>
+              👹 <span>Chasers</span>
             </div>
             <div>Pos: {chaserPosition}/{totalSteps}</div>
             <div className="text-xs opacity-75">

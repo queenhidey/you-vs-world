@@ -110,6 +110,7 @@ export default function PlayingState({
           <div className="flex-shrink-0 lg:w-auto w-full flex justify-center">
             <GameBoard 
               playerPosition={playerPosition}
+              playerData={playerData}
               chaserPosition={chaserPosition}
               totalSteps={totalSteps}
               isGameStarted={isGameStarted}
