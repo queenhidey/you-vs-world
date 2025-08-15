@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { GameBoardProps } from '../../types/game';
 import { Card } from '../ui';
-import { Question, PlayerData } from '../../types/game';
+
+
 
 export default function GameBoard({ 
   playerPosition, 
@@ -40,7 +41,7 @@ export default function GameBoard({
     const isPassed = playerPosition > stepIndex;
     const isChaserPassed = chaserPosition > stepIndex;
     const isBelowChaser = stepIndex < chaserPosition;
-    const isStepAroundPlayer = !isGameStarted && (stepIndex === 3 || stepIndex === 4 || stepIndex === 5);
+    const isStepAroundPlayer = !isGameStarted && (stepIndex === 3 || stepIndex === 5);
     const hasCustomLabel = stepLabels[stepIndex];
     
     let stepClass = "w-32 h-14 rounded-lg border-2 flex items-center justify-center text-white font-bold text-lg relative transition-all duration-500 ";
@@ -104,6 +105,23 @@ export default function GameBoard({
         </div>
       );
     }
+
+    if (stepIndex === 4 && !hasCustomLabel) {
+      return (
+        <div key={stepIndex} className="flex items-center justify-center">
+          <div className={stepClass}>
+            <button
+            onClick={() => onPlayerStartPositionChange && onPlayerStartPositionChange(stepIndex, stepLabels[stepIndex])}
+            className={`${stepClass} cursor-pointer hover:scale-110 hover:brightness-110`}
+          >
+            <span className="text-sm font-bold">5 sips</span>
+          </button>
+          </div>
+        </div>
+      );
+    }
+
+
 
     return (
       <div key={stepIndex} className="flex items-center justify-center">

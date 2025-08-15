@@ -40,7 +40,7 @@ export default function GameSetupState({
 }: GameSetupStateProps) {
   
   // Check if all required labels have been filled in
-  const allLabelsComplete = stepLabels[3] && stepLabels[4] && stepLabels[5];
+  const allLabelsComplete = stepLabels[3] && stepLabels[5];
   
   // Game can only start when both conditions are met
   const canStart = hasSelectedStartPosition && allLabelsComplete;
@@ -57,7 +57,7 @@ export default function GameSetupState({
       {/* Warning: Labels not complete */}
       {!allLabelsComplete && (
         <p className="text-yellow-300 mb-4 font-medium">
-          ⚠️ Please fill in all three text fields first
+          ⚠️ Please fill in all text fields first
         </p>
       )}
       

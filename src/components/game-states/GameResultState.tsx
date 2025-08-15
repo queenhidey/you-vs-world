@@ -49,8 +49,8 @@ export default function GameResultState({ result, playerName, onGameEnd }: GameR
   
   // Personalized message including drinking game consequences
   const message = isWon 
-    ? `You escaped! ${playerName} DRINKS FOR EVERYONE (except you)`
-    : `The Chasers got you! ${playerName} DRINKS FOR YOU`;
+    ? `You escaped! ${playerName} for everyone except you!`
+    : `The Chasers got you! ${playerName} for you!`;
     
   // Button styling and text based on outcome
   const buttonVariant = isWon ? 'success' : 'danger';
