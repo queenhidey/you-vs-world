@@ -83,8 +83,7 @@ export default function QuestionCard({
       // PLAYER SELECTION PHASE
       // Normal player selection
       setSelectedAnswer(optionIndex);
-      const isCorrect = optionIndex === question.correctAnswer;
-      onAnswer(isCorrect, optionIndex);
+      onAnswer(optionIndex === question.correctAnswer, optionIndex);
     }
   };
 

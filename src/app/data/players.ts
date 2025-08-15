@@ -23,7 +23,7 @@ export const players: Record<string, PlayerData> = {
     id: 'example',
     name: 'Example',
     emoji: '🙂',
-    description: 'Example Description',
+    description: 'Example Questions',
     questions: exampleQuestions
   },
   jamie: {
@@ -121,7 +121,7 @@ export const players: Record<string, PlayerData> = {
     id: 'liv',
     name: 'Liv',
     emoji: '👱‍♀️',
-    description: 'Taylor Swift',
+    description: '???',
     questions: livQuestions
   },
   sarkie: {

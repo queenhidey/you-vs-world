@@ -2,12 +2,14 @@
  * Game Result State Component
  * 
  * Displays the final outcome of a completed chase game with dramatic full-screen presentation.
- * Shows victory or defeat with appropriate visual styling and drinking game consequences.
+ * Shows victory or defeat with appropriate visual styling, drinking game consequences, and sound effects.
  */
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Button } from '../ui';
+import { FanfareSound, WompWompSound } from '../audio';
 
 /**
  * Props for the GameResultState component
@@ -29,6 +31,7 @@ interface GameResultStateProps {
  * - Large emoji and text for high visual impact
  * - Drinking game consequences integrated into messaging
  * - Contextual action button (Play Again vs Try Again)
+ * - Victory fanfare or defeat womp womp sound effects
  * 
  * Visual Design:
  * - Victory: Green to blue gradient with celebration emoji
@@ -36,8 +39,16 @@ interface GameResultStateProps {
  * - Glass morphism card effect for modern aesthetic
  */
 export default function GameResultState({ result, playerName, onGameEnd }: GameResultStateProps) {
+  // State for controlling sound playback
+  const [playSound, setPlaySound] = useState(false);
+  
   // Determine if player successfully escaped
   const isWon = result === 'won';
+  
+  // Trigger sound effect when component mounts
+  useEffect(() => {
+    setPlaySound(true);
+  }, []);
   
   // Set background gradient based on game outcome
   const bgGradient = isWon 
@@ -58,6 +69,21 @@ export default function GameResultState({ result, playerName, onGameEnd }: GameR
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${bgGradient} flex items-center justify-center p-4`}>
+      {/* Sound Effects */}
+      {isWon ? (
+        <FanfareSound 
+          play={playSound} 
+          volume={0.4}
+          onComplete={() => setPlaySound(false)}
+        />
+      ) : (
+        <WompWompSound 
+          play={playSound} 
+          volume={0.4}
+          onComplete={() => setPlaySound(false)}
+        />
+      )}
+      
       {/* Main result card with glass morphism effect */}
       <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-8 max-w-md">
         {/* Large dramatic title */}

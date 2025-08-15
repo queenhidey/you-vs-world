@@ -143,7 +143,7 @@ describe('ChaseGame Component', () => {
 
     it('should show warning message when fields are empty', () => {
       render(<ChaseGame {...defaultProps} />)
-      expect(screen.getByText(/Please fill in all three text fields first/)).toBeInTheDocument()
+      expect(screen.getByText(/Please fill in all text fields first/)).toBeInTheDocument()
     })
 
     it('should transition to game phase when Start Game is clicked', () => {

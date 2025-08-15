@@ -6,9 +6,7 @@ import {
   getAllPlayers,
   validateAllPlayers,
   type Question,
-  type PlayerData,
   playerIds,
-  players 
 } from '../src/app/data/contestantControls'
 
 describe('Questions Data Module', () => {

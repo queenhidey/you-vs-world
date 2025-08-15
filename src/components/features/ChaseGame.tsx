@@ -79,7 +79,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer, onBackToPlayerSel
   /** Custom labels for board positions (position → label mapping) */
   const [stepLabels, setStepLabels] = useState<{ [key: number]: string }>({});
   /** Player's chosen name/label from selected starting position */
-  const [playerName, setPlayerName] = useState<string>("5");
+  const [playerName, setPlayerName] = useState<string>("5 sips");
   /** Whether player has selected their starting position */
   const [hasSelectedStartPosition, setHasSelectedStartPosition] = useState(false);
 
@@ -123,7 +123,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer, onBackToPlayerSel
     validateAllPlayers();
   }, []);
 
-  const handleAnswer = useCallback((isCorrect: boolean, answerIndex: number) => {
+  const handleAnswer = useCallback((_isCorrect: boolean, answerIndex: number) => {
     setTimerActive(false);
     setShowResult(true);
     setPlayerAnswer(answerIndex);
@@ -155,12 +155,15 @@ export default function ChaseGame({ onGameEnd, selectedPlayer, onBackToPlayerSel
   useEffect(() => {
     let interval: NodeJS.Timeout;
     
-    if (isGameStarted && timerActive && timeLeft > 0) {
+    if (isGameStarted && timerActive && timeLeft > 0 && gameStatus === 'playing') {
       interval = setInterval(() => {
         setTimeLeft(prev => {
           if (prev <= 1) {
             setTimerActive(false);
-            audioService.playAlarmSound();
+            // Only play alarm sound if game is still in playing state
+            if (gameStatus === 'playing') {
+              audioService.playAlarmSound();
+            }
             return 0;
           } else if (prev <= 3) {
             audioService.playWarningBeep();
@@ -175,7 +178,7 @@ export default function ChaseGame({ onGameEnd, selectedPlayer, onBackToPlayerSel
         clearInterval(interval);
       }
     };
-  }, [isGameStarted, timerActive, timeLeft, audioService]);
+  }, [isGameStarted, timerActive, timeLeft, gameStatus, audioService]);
 
   const handleNextQuestion = () => {
     const nextQuestion = getRandomQuestion();
