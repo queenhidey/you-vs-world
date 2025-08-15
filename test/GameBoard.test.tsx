@@ -3,13 +3,22 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import GameBoard from '../src/components/features/GameBoard'
 
 describe('GameBoard Component', () => {
+  const mockPlayerData = {
+    id: 'test',
+    name: 'Test Player',
+    emoji: '🎮',
+    description: 'Test Description',
+    questions: []
+  }
+
   const defaultProps = {
     playerPosition: 4,
     chaserPosition: 2,
     totalSteps: 9,
     isGameStarted: true,
     stepLabels: {},
-    playerName: 'Test Player'
+    playerName: 'Test Player',
+    playerData: mockPlayerData
   }
 
   describe('Rendering', () => {
@@ -179,8 +188,8 @@ describe('GameBoard Component', () => {
   describe('Game Phase Colors', () => {
     it('should show player position with correct styling during game', () => {
       render(<GameBoard {...defaultProps} />)
-      // Player should be represented with the person emoji - check all instances exist
-      const playerEmojis = screen.getAllByText('🧑')
+      // Player should be represented with the game controller emoji - check all instances exist
+      const playerEmojis = screen.getAllByText('🎮')
       expect(playerEmojis.length).toBeGreaterThan(0)
     })
 

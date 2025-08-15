@@ -188,7 +188,7 @@ describe('ChaseGame Component', () => {
 
     it('should show timer during game', () => {
       setupGame()
-      expect(screen.getByText('10')).toBeInTheDocument()
+      expect(screen.getByText('30')).toBeInTheDocument()
       expect(screen.getByText('seconds remaining')).toBeInTheDocument()
     })
 
@@ -217,24 +217,24 @@ describe('ChaseGame Component', () => {
     it('should countdown from 10 seconds', async () => {
       setupGame()
       
-      expect(screen.getByText('10')).toBeInTheDocument()
+      expect(screen.getByText('30')).toBeInTheDocument()
       
       await act(async () => {
         vi.advanceTimersByTime(1000)
       })
-      expect(screen.getByText('9')).toBeInTheDocument()
+      expect(screen.getByText('29')).toBeInTheDocument()
       
       await act(async () => {
         vi.advanceTimersByTime(1000)
       })
-      expect(screen.getByText('8')).toBeInTheDocument()
+      expect(screen.getByText('28')).toBeInTheDocument()
     })
 
     it('should show TIMES UP when timer reaches zero', async () => {
       setupGame()
       
       await act(async () => {
-        vi.advanceTimersByTime(10000)
+        vi.advanceTimersByTime(30000)
       })
       
       expect(screen.getByText(/⏰ TIMES UP ⏰/)).toBeInTheDocument()
@@ -244,15 +244,15 @@ describe('ChaseGame Component', () => {
       setupGame()
       
       // Should be green initially
-      expect(screen.getByText('10').closest('div')).toHaveClass('bg-green-600')
+      expect(screen.getByText('30').closest('div')).toHaveClass('bg-green-600')
       
-      // Should be yellow at 5 seconds
+      // Should be yellow at 5 seconds (after 25 seconds elapsed)
       await act(async () => {
-        vi.advanceTimersByTime(5000)
+        vi.advanceTimersByTime(25000)
       })
       expect(screen.getByText('5').closest('div')).toHaveClass('bg-yellow-500')
       
-      // Should be red at 3 seconds
+      // Should be red at 3 seconds (after 27 seconds total elapsed)
       await act(async () => {
         vi.advanceTimersByTime(2000)
       })
