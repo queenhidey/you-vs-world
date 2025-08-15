@@ -56,12 +56,12 @@ export default function GameResultState({ result, playerName, onGameEnd }: GameR
     : 'from-red-600 to-black';      // Defeat: dramatic red to black
     
   // Main title with outcome-specific emoji and messaging
-  const title = isWon ? '🎉 YOU WON! 🎉' : '💀 CAUGHT! 💀';
+  const title = isWon ? '🎉 WIN! 🎉' : '💀 CAUGHT! 💀';
   
-  // Personalized message including drinking game consequences
+  // Personalized message including game consequences
   const message = isWon 
-    ? `You escaped! ${playerName} for everyone except you!`
-    : `The Chasers got you! ${playerName} for you!`;
+    ? `You successfully escaped! ${playerName} for the Chaser`
+    : `The Chaser got you! ${playerName} for everyone!`;
     
   // Button styling and text based on outcome
   const buttonVariant = isWon ? 'success' : 'danger';

@@ -78,11 +78,11 @@ export default function PlayingState({
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold text-white mb-2">YOU vs WORLD</h1>
+          <h1 className="text-4xl font-bold text-white mb-2">THE CHASE</h1>
           <div className="flex justify-center items-center gap-8 text-white flex-wrap">
             <div className="text-lg">
-              Playing as: <span className="font-bold">
-                {playerData.emoji} {playerData.name}
+              Playing against: <span className="font-bold">
+                {playerData.emoji} {playerData.name} (Chaser)
               </span>
             </div>
             <div className="text-lg">Question {questionNumber}</div>

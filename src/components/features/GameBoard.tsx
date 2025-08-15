@@ -117,11 +117,11 @@ export default function GameBoard({
             ) : isPlayerHere && isChaserHere ? (
               "💥"
             ) : isPlayerHere ? (
-              playerData.emoji
+              "🧑"
             ) : isChaserHere ? (
-              "👹"
+              playerData.emoji
             ) : isBelowChaser ? (
-              "👹"
+              "❌"
             ) : isPassed ? (
               "✅"
             ) : isChaserPassed ? (
@@ -152,7 +152,7 @@ export default function GameBoard({
         <div className="flex justify-between text-white mb-6 text-sm">
           <div className="text-center">
             <div className="font-bold flex items-center justify-center gap-1">
-              {playerData.emoji} <span>{playerData.name}</span>
+              🧑 <span>Players</span>
             </div>
             <div>Pos: {playerPosition}/{totalSteps}</div>
             <div className="text-xs opacity-75">
@@ -161,11 +161,11 @@ export default function GameBoard({
           </div>
           <div className="text-center">
             <div className="font-bold flex items-center justify-center gap-1">
-              👹 <span>Chasers</span>
+              {playerData.emoji}{playerData.name} (Chaser)
             </div>
             <div>Pos: {chaserPosition}/{totalSteps}</div>
             <div className="text-xs opacity-75">
-              {playerPosition - chaserPosition} behind you.. 
+              {playerPosition - chaserPosition} behind
             </div>
           </div>
         </div>
@@ -182,11 +182,8 @@ export default function GameBoard({
             {distanceFromChaser <= 1 && playerPosition > 0 && (
               <span className="text-red-400 font-bold ml-2 animate-pulse">⚠️ DANGER!</span>
             )}
-            {distanceFromChaser <= 0 && playerPosition > 0 && (
-              <span className="text-red-600 font-bold ml-2 animate-bounce">💀 CAUGHT!</span>
-            )}
           </div>
-          {distanceFromChaser > 5 && (
+          {distanceFromChaser > 4 && (
             <div className="text-green-400 text-xs mt-1">You&apos;re doing great!</div>
           )}
           {distanceFromChaser <= 3 && distanceFromChaser > 1 && isGameStarted &&(

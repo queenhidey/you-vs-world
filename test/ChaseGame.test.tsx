@@ -95,7 +95,7 @@ describe('ChaseGame Component', () => {
   describe('Initial Render', () => {
     it('should render the game title', () => {
       render(<ChaseGame {...defaultProps} />)
-      expect(screen.getByText('YOU vs WORLD')).toBeInTheDocument()
+      expect(screen.getByText('THE CHASE')).toBeInTheDocument()
     })
 
     it('should show setup phase initially', () => {
@@ -106,15 +106,16 @@ describe('ChaseGame Component', () => {
 
     it('should display player information', () => {
       render(<ChaseGame {...defaultProps} />)
-      expect(screen.getByText(/Playing as:/)).toBeInTheDocument()
-      expect(screen.getByText(`${playerData.emoji} ${playerData.name}`)).toBeInTheDocument()
+      expect(screen.getByText(/Playing against:/)).toBeInTheDocument()
+      expect(screen.getByText(/Example/)).toBeInTheDocument()
+      expect(screen.getByText(/\(Chaser\)/)).toBeInTheDocument()
     })
 
     it('should show manual controls', () => {
       render(<ChaseGame {...defaultProps} />)
       expect(screen.getByText('Manual Controls')).toBeInTheDocument()
-      expect(screen.getByText('Advance Player ⬆️')).toBeInTheDocument()
-      expect(screen.getByText('Advance Chasers ⬆️')).toBeInTheDocument()
+      expect(screen.getByText('Advance Players ⬆️')).toBeInTheDocument()
+      expect(screen.getByText('Advance Chaser ⬆️')).toBeInTheDocument()
     })
   })
 
@@ -279,7 +280,7 @@ describe('ChaseGame Component', () => {
     it('should advance player position when clicked', () => {
       setupGame()
       
-      fireEvent.click(screen.getByText('Advance Player ⬆️'))
+      fireEvent.click(screen.getByText('Advance Players ⬆️'))
       
       // Player position should change in the GameBoard mock
       expect(screen.getByText('Player: 4')).toBeInTheDocument() // 3 + 1
@@ -288,7 +289,7 @@ describe('ChaseGame Component', () => {
     it('should advance chaser position when clicked', () => {
       setupGame()
       
-      fireEvent.click(screen.getByText('Advance Chasers ⬆️'))
+      fireEvent.click(screen.getByText('Advance Chaser ⬆️'))
       
       // Chaser position should change in the GameBoard mock
       expect(screen.getByText('Chaser: 1')).toBeInTheDocument() // 0 + 1
@@ -297,7 +298,7 @@ describe('ChaseGame Component', () => {
     it('should disable "Player Didn\'t Answer" button after use', () => {
       setupGame()
       
-      const button = screen.getByText('Player Didn\'t Answer ⏭️')
+      const button = screen.getByText('Players Didn\'t Answer ⏭️')
       fireEvent.click(button)
       
       expect(button).toBeDisabled()
@@ -306,7 +307,7 @@ describe('ChaseGame Component', () => {
     it('should disable "Chaser Didn\'t Answer" button after use', () => {
       setupGame()
       
-      const button = screen.getByText('Chaser\'s Didn\'t Answer ⏭️')
+      const button = screen.getByText('Chaser Didn\'t Answer ⏭️')
       fireEvent.click(button)
       
       expect(button).toBeDisabled()

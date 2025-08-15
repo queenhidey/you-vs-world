@@ -68,8 +68,8 @@ describe('GameResultState Component', () => {
       );
 
       // Check for victory elements
-      expect(screen.getByText('🎉 YOU WON! 🎉')).toBeInTheDocument();
-      expect(screen.getByText('You escaped! Test Player for everyone except you!')).toBeInTheDocument();
+      expect(screen.getByText('🎉 WIN! 🎉')).toBeInTheDocument();
+      expect(screen.getByText('You successfully escaped! Test Player for the Chaser')).toBeInTheDocument();
       expect(screen.getByText('Play Again')).toBeInTheDocument();
     });
 
@@ -129,7 +129,7 @@ describe('GameResultState Component', () => {
 
       // Check for defeat elements
       expect(screen.getByText('💀 CAUGHT! 💀')).toBeInTheDocument();
-      expect(screen.getByText('The Chasers got you! Test Player for you!')).toBeInTheDocument();
+      expect(screen.getByText('The Chaser got you! Test Player for everyone!')).toBeInTheDocument();
       expect(screen.getByText('Try Again')).toBeInTheDocument();
     });
 
@@ -187,7 +187,7 @@ describe('GameResultState Component', () => {
         />
       );
 
-      expect(screen.getByText('You escaped! Custom Name for everyone except you!')).toBeInTheDocument();
+      expect(screen.getByText('You successfully escaped! Custom Name for the Chaser')).toBeInTheDocument();
     });
 
     it('should include player name in defeat message', () => {
@@ -199,7 +199,7 @@ describe('GameResultState Component', () => {
         />
       );
 
-      expect(screen.getByText('The Chasers got you! Another Name for you!')).toBeInTheDocument();
+      expect(screen.getByText('The Chaser got you! Another Name for everyone!')).toBeInTheDocument();
     });
 
     it('should handle special characters in player name', () => {
@@ -211,7 +211,7 @@ describe('GameResultState Component', () => {
         />
       );
 
-      expect(screen.getByText('You escaped! Test & Name! 123 for everyone except you!')).toBeInTheDocument();
+      expect(screen.getByText('You successfully escaped! Test & Name! 123 for the Chaser')).toBeInTheDocument();
     });
   });
 
@@ -334,7 +334,7 @@ describe('GameResultState Component', () => {
         />
       );
 
-      const title = screen.getByText('🎉 YOU WON! 🎉');
+      const title = screen.getByText('🎉 WIN! 🎉');
       expect(title.closest('h1')).toHaveClass('text-6xl', 'font-bold', 'text-white');
     });
 
@@ -347,7 +347,7 @@ describe('GameResultState Component', () => {
         />
       );
 
-      const message = screen.getByText(/You escaped!/);
+      const message = screen.getByText(/You successfully escaped!/);
       expect(message.closest('p')).toHaveClass('text-2xl', 'text-white');
     });
 
@@ -376,7 +376,7 @@ describe('GameResultState Component', () => {
       );
 
       const heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toHaveTextContent('🎉 YOU WON! 🎉');
+      expect(heading).toHaveTextContent('🎉 WIN! 🎉');
     });
 
     it('should have accessible button', () => {

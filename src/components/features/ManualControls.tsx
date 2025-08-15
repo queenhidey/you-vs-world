@@ -61,19 +61,19 @@ export default function ManualControls({
       <div className="flex flex-col gap-3">
         {/* Position Control Buttons */}
         <Button variant="primary" onClick={onAdvancePlayer}>
-          Advance Player ⬆️
+          Advance Players ⬆️
         </Button>
         
         <Button variant="info" onClick={onUnadvancePlayer}>
-          Unadvance Player ⬇️
+          Unadvance Players ⬇️
         </Button>
         
         <Button variant="danger" onClick={onAdvanceChaser}>
-          Advance Chasers ⬆️
+          Advance Chaser ⬆️
         </Button>
         
         <Button variant="warning" onClick={onUnadvanceChaser}>
-          Unadvance Chasers ⬇️
+          Unadvance Chaser ⬇️
         </Button>
         
         {/* Visual separator between position controls and skip controls */}
@@ -85,7 +85,7 @@ export default function ManualControls({
           onClick={onPlayerNoAnswer}
           disabled={playerAnswered}
         >
-          Player Didn&apos;t Answer ⏭️
+          Players Didn't Answer ⏭️
         </Button>
         
         <Button 
@@ -93,7 +93,7 @@ export default function ManualControls({
           onClick={onChaserNoAnswer}
           disabled={chaserHasPicked}
         >
-          Chaser&apos;s Didn&apos;t Answer ⏭️
+          Chaser Didn&apos;t Answer ⏭️
         </Button>
         
         {/* Back to Player Select Button */}

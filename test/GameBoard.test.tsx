@@ -65,7 +65,7 @@ describe('GameBoard Component', () => {
           chaserPosition={3} 
         />
       )
-      expect(screen.getByText(/CAUGHT!/)).toBeInTheDocument()
+      expect(screen.getByText('💥')).toBeInTheDocument()
     })
 
     it('should show encouraging message when player is ahead', () => {
@@ -195,8 +195,8 @@ describe('GameBoard Component', () => {
 
     it('should show chaser position with correct styling during game', () => {
       render(<GameBoard {...defaultProps} />)
-      // Chaser should be represented with the monster emoji - check all instances exist
-      const chaserEmojis = screen.getAllByText('👹')
+      // Chaser should be represented with the game controller emoji - check all instances exist
+      const chaserEmojis = screen.getAllByText('🎮')
       expect(chaserEmojis.length).toBeGreaterThan(0)
     })
 
@@ -221,7 +221,7 @@ describe('GameBoard Component', () => {
 
     it('should calculate chaser distance correctly', () => {
       render(<GameBoard {...defaultProps} />)
-      expect(screen.getByText('2 behind you..')).toBeInTheDocument() // 4 - 2 = 2
+      expect(screen.getByText('2 behind')).toBeInTheDocument() // 4 - 2 = 2
     })
   })
 })

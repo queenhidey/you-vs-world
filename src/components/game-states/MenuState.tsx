@@ -34,7 +34,7 @@ export default function MenuState({ onStartGame }: MenuStateProps) {
       <div className="text-center">
         {/* Main game title */}
         <h1 className="text-6xl font-bold text-white mb-8">
-          THE CHASE: YOU vs THE WORLD
+          THE CHASE
         </h1>
         
         {/* Game instructions card */}
@@ -43,8 +43,8 @@ export default function MenuState({ onStartGame }: MenuStateProps) {
           
           {/* Game rules list */}
           <ul className="text-white text-left space-y-2 mb-6 text-center">
-            <li>• Answer questions to move forward!</li>
-            <li>• Get questions wrong and the Chasers might catch up!</li>
+            <li>• Answer questions to move forward and catch!</li>
+            <li>• Get questions wrong and the Chaser might catch up!</li>
             <li>• Reach the end before being caught to win!</li>
           </ul>
           

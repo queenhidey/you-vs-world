@@ -43,11 +43,11 @@ export default function PlayerSelectState({
       <div className="text-center">
         {/* Screen title */}
         <h1 className="text-6xl font-bold text-white mb-4">
-          THE CHASE: YOU vs THE WORLD
+          THE CHASE
         </h1>
 
         <p className="text-3xl text-red-500 mb-8">
-          Choose Your Player
+          Choose Your Chaser
         </p>
         
         {/* Player character selection grid */}
