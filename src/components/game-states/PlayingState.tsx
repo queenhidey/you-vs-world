@@ -74,11 +74,11 @@ export default function PlayingState({
   onBackToPlayerSelect
 }: PlayingStateProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 p-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 p-2 lg:p-4">
+      <div className="max-w-full mx-auto px-2 lg:px-4">
         {/* Header */}
-        <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold text-white mb-2">THE CHASE</h1>
+        <div className="text-center mb-4">
+          <h1 className="text-5xl font-bold text-white mb-2">THE CHASE</h1>
           <div className="flex justify-center items-center gap-8 text-white flex-wrap">
             <div className="text-lg">
               Playing against: <span className="font-bold">
@@ -90,9 +90,9 @@ export default function PlayingState({
         </div>
 
         {/* Main Game Layout - Side by Side */}
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <div className="flex flex-col xl:flex-row gap-3 lg:gap-4 items-start">
           {/* Manual Controls - Left Side */}
-          <div className="flex-shrink-0 lg:w-auto w-full">
+          <div className="flex-shrink-0 xl:w-64 w-full">
             <ManualControls
               onAdvancePlayer={onAdvancePlayer}
               onUnadvancePlayer={onUnadvancePlayer}
@@ -107,7 +107,7 @@ export default function PlayingState({
           </div>
 
           {/* Game Board - Center */}
-          <div className="flex-shrink-0 lg:w-auto w-full flex justify-center">
+          <div className="flex-shrink-0 xl:w-auto w-full flex justify-center">
             <GameBoard 
               playerPosition={playerPosition}
               playerData={playerData}
@@ -122,7 +122,7 @@ export default function PlayingState({
           </div>
 
           {/* Question Card - Right Side on desktop, bottom on mobile */}
-          <div className="flex-1 w-full">
+          <div className="flex-1 xl:flex-[2] w-full min-w-0">
             {!isGameStarted ? (
               /* Setup Phase */
               <GameSetupState
@@ -145,7 +145,7 @@ export default function PlayingState({
                 )}
                 
                 {/* Timer, Times Up, or Next Question Button */}
-                <div className="mt-6 flex flex-col items-center gap-4">
+                <div className="mt-4 flex flex-col items-center gap-3">
                   {/* Show Next Question button only after both picks are made AND answer has been shown */}
                   {showResult && chaserHasPicked && showCorrectAnswer ? (
                     <Button variant="success" size="lg" onClick={onNextQuestion}>

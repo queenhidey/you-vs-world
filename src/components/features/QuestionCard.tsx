@@ -101,7 +101,7 @@ export default function QuestionCard({
    * @returns Complete CSS class string for the option button
    */
   const getOptionClass = (optionIndex: number) => {
-    let baseClass = "w-full p-4 text-left rounded-lg border-2 transition-all duration-300 transform ";
+    let baseClass = "w-full p-4 lg:p-8 text-left text-lg lg:text-3xl rounded-lg border-2 transition-all duration-300 transform ";
     
     // DISABLED STATE LOGIC
     // Disable all cards after chaser's pick (secondAnswer) is made, or if explicitly disabled
@@ -152,12 +152,12 @@ export default function QuestionCard({
 
   return (
     <div className="w-full">
-      <Card>
+      <Card variant="glass" className="!p-4 lg:!p-6">
         {/* Question text */}
-        <h2 className="text-2xl font-bold text-white mb-6">{question.question}</h2>
+        <h2 className="text-2xl lg:text-5xl font-bold text-white mb-6 lg:mb-8">{question.question}</h2>
         
         {/* Answer options grid */}
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 lg:gap-6">
           {question.options.map((option, index) => (
             <button
               key={index}

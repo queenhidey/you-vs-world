@@ -44,7 +44,7 @@ export default function GameBoard({
     const isStepAroundPlayer = !isGameStarted && (stepIndex === 3 || stepIndex === 4 || stepIndex === 5);
     const hasCustomLabel = stepLabels[stepIndex];
     
-    let stepClass = "w-32 h-14 rounded-lg border-2 flex items-center justify-center text-white font-bold text-lg relative transition-all duration-500 ";
+    let stepClass = "w-40 lg:w-48 h-14 rounded-lg border-2 flex items-center justify-center text-white font-bold text-lg relative transition-all duration-500 ";
     
     // Special coloring for setup phase
     if (isStepAroundPlayer && !isGameStarted) {
@@ -81,7 +81,7 @@ export default function GameBoard({
             <input
               type="text"
               placeholder="Drink number"
-              className="w-24 h-8 text-xs text-black text-center rounded border-none bg-white/90"
+              className="w-32 lg:w-40 h-8 text-xs text-black text-center rounded border-none bg-white/90"
               value={editingSteps[stepIndex] || ''}
               onChange={(e) => handleStepLabelChange(stepIndex, e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleStepLabelSubmit(stepIndex)}
@@ -111,7 +111,7 @@ export default function GameBoard({
     return (
       <div key={stepIndex} className="flex items-center justify-center">
         <div className={stepClass}>
-          <span className="text-2xl">
+          <span className="text-4xl">
             {isFinishLine ? (
               "🏁"
             ) : isPlayerHere && isChaserHere ? (
@@ -144,27 +144,27 @@ export default function GameBoard({
   const distanceFromChaser = playerPosition - chaserPosition;
 
   return (
-    <div className="w-64">
-      <Card>
-        <h3 className="text-xl font-bold text-white mb-4 text-center">The Chase Board</h3>
+    <div className="w-80">
+      <Card variant="glass" className="p-6">
+        
         
         {/* Progress indicators */}
-        <div className="flex justify-between text-white mb-6 text-sm">
+        <div className="flex justify-between text-white mb-6 text-xl">
           <div className="text-center">
             <div className="font-bold flex items-center justify-center gap-1">
               🧑 <span>Players</span>
             </div>
-            <div>Pos: {playerPosition}/{totalSteps}</div>
-            <div className="text-xs opacity-75">
+            <div>Pos: {playerPosition}</div>
+            <div className="text-sm opacity-75">
               {totalSteps - playerPosition} to go!
             </div>
           </div>
           <div className="text-center">
             <div className="font-bold flex items-center justify-center gap-1">
-              {playerData.emoji}{playerData.name} (Chaser)
+              {playerData.emoji} Chaser
             </div>
-            <div>Pos: {chaserPosition}/{totalSteps}</div>
-            <div className="text-xs opacity-75">
+            <div>Pos: {chaserPosition}</div>
+            <div className="text-sm opacity-75">
               {playerPosition - chaserPosition} behind
             </div>
           </div>
@@ -177,17 +177,17 @@ export default function GameBoard({
 
         {/* Distance indicator */}
         <div className="text-center text-white mt-4">
-          <div className="text-sm">
+          <div className="text-md">
             Distance: {distanceFromChaser} steps
             {distanceFromChaser <= 1 && playerPosition > 0 && (
               <span className="text-red-400 font-bold ml-2 animate-pulse">⚠️ DANGER!</span>
             )}
           </div>
           {distanceFromChaser > 4 && (
-            <div className="text-green-400 text-xs mt-1">You&apos;re doing great!</div>
+            <div className="text-green-400 text-md mt-1">You're doing great!</div>
           )}
           {distanceFromChaser <= 3 && distanceFromChaser > 1 && isGameStarted &&(
-            <div className="text-yellow-400 text-xs mt-1">Chaser is getting closer...</div>
+            <div className="text-yellow-400 text-md mt-1">Chaser is getting closer...</div>
           )}
         </div>
       </Card>
