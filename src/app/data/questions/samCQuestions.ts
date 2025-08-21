@@ -3,92 +3,92 @@ import { Question } from "../contestantControls";
 export const samCQuestions: Question[] = [
   {
     id: 31,
-    question: "Who is considered the father of psychoanalysis?",
-    options: ["Sigmund Freud", "Carl Jung", "Ivan Pavlov", "B.F. Skinner"],
+    question: "Who proposed the stages of cognitive development?",
+    options: ["Jean Piaget", "Mary Whites", "Juliet Farrier"],
     correctAnswer: 0
   },
   {
     id: 32,
-    question: "What is the term for a persistent, irrational fear of a specific object or situation?",
-    options: ["Phobia", "Delusion", "Obsession", "Compulsion"],
-    correctAnswer: 0
-  },
-  {
-    id: 33,
-    question: "Which psychologist developed the hierarchy of needs?",
-    options: ["Abraham Maslow", "Erik Erikson", "Jean Piaget", "John Watson"],
-    correctAnswer: 0
-  },
-  {
-    id: 34,
-    question: "What is the main focus of cognitive psychology?",
-    options: ["Mental processes", "Unconscious motives", "Behavioral conditioning", "Social influences"],
-    correctAnswer: 0
-  },
-  {
-    id: 35,
-    question: "Which term describes learning by observing others?",
-    options: ["Classical conditioning", "Operant conditioning", "Observational learning", "Latent learning"],
+    question: "Around what age do most children develop object permanence?",
+    options: ["16 months", "20 months", "10 months"],
     correctAnswer: 2
   },
   {
+    id: 33,
+    question: "What is Erikson’s stage for teenagers?",
+    options: ["Pubescant Anhedonia", "Identity vs. Role Confusion", "Adolescant isolation"],
+    correctAnswer: 1
+  },
+  {
+    id: 34,
+    question: "What is chunking?",
+    options: ["Misremembering separate events as happening simultaneously", "Grouping letters together into words when reading", "Grouping information into meaningful units to improve memory"],
+    correctAnswer: 2
+  },
+  {
+    id: 35,
+    question: "What is neuroplasticity?",
+    options: ["The brain’s ability to shield itself in the event of trauma", "The brain’s ability to change and adapt as a result of experience", "The brain’s ability to forget unused memories to make room for more"],
+    correctAnswer: 1
+  },
+  {
     id: 36,
-    question: "What is the placebo effect?",
-    options: ["Improvement due to belief in treatment", "Negative reaction to medication", "Memory loss", "Unconscious motivation"],
-    correctAnswer: 0
+    question: "What is the amygdala responsible for?",
+    options: ["Long term memory", "Processing emotions", "Balance"],
+    correctAnswer: 1
   },
   {
     id: 37,
-    question: "Which psychologist is known for the stages of cognitive development?",
-    options: ["Jean Piaget", "Albert Bandura", "Erik Erikson", "Sigmund Freud"],
+    question: "Which neurotransmitter is linked to mood regulation?",
+    options: ["Serotonin", "Dopamine", "Neuroepinephrine"],
     correctAnswer: 0
   },
   {
     id: 38,
-    question: "What is the term for a split between thoughts, emotions, and behavior, often seen in schizophrenia?",
-    options: ["Dissociation", "Regression", "Displacement", "Projection"],
-    correctAnswer: 0
+    question: "What part of the brain is linked to memory formation?",
+    options: ["The temporal lobe", "The hippocampus", "The Medulla"],
+    correctAnswer: 1
   },
   {
     id: 39,
-    question: "Which part of the brain is most associated with decision making and personality?",
-    options: ["Frontal lobe", "Occipital lobe", "Temporal lobe", "Parietal lobe"],
-    correctAnswer: 0
+    question: "Who studied imprinting in geese?",
+    options: ["Ivan Pavlov", "Konrad Lorenz", "Erik Erikson"],
+    correctAnswer: 1
   },
   {
     id: 40,
-    question: "What is the psychological term for a false sensory perception?",
-    options: ["Hallucination", "Illusion", "Delusion", "Obsession"],
-    correctAnswer: 0
+    question: "Who is the founder of psychoanalysis?",
+    options: ["Leon Festinger", "William James", "Sigmund Freud"],
+    correctAnswer: 2
   },
   {
     id: 41,
-    question: "Which psychologist is famous for the 'Bobo doll' experiment?",
-    options: ["Albert Bandura", "John Watson", "Carl Rogers", "Abraham Maslow"],
+    question: "What is operant conditioning?",
+    options: ["Learning through rewards and punishments", "Learned passiveness towards authority", "The brains fight or flight response"],
     correctAnswer: 0
   },
   {
     id: 42,
-    question: "What is the term for the tendency to recall the first and last items in a list best?",
-    options: ["Serial position effect", "Priming", "Chunking", "Encoding specificity"],
+    question: "Around what age do children typically begin to use two-word sentences?",
+    options: ["24 months", "12 months", "18 months"],
     correctAnswer: 0
   },
   {
     id: 43,
-    question: "Which disorder is characterized by alternating periods of mania and depression?",
-    options: ["Bipolar disorder", "Schizophrenia", "Obsessive-compulsive disorder", "Generalized anxiety disorder"],
-    correctAnswer: 0
+    question: "What is an episodic memory?",
+    options: ["A memory of visual stimuli", "A memory sorted chronologically", "A memory of personal experiences"],
+    correctAnswer: 2
   },
   {
     id: 44,
-    question: "What is the defense mechanism where unacceptable impulses are attributed to others?",
-    options: ["Projection", "Denial", "Rationalization", "Sublimation"],
-    correctAnswer: 0
+    question: "What is a heuristic?",
+    options: ["A piece of a larger memory", "A mental shortcut for problem-solving", "Memories that are sorted chronologically"],
+    correctAnswer: 1
   },
   {
     id: 45,
-    question: "Which psychologist developed the concept of 'self-actualization'?",
-    options: ["Abraham Maslow", "Carl Rogers", "Sigmund Freud", "Erik Erikson"],
+    question: "Who coined the term 'tabula rasa'?",
+    options: ["John Locke", "Simon Viklund", "Lev Vygotsky"],
     correctAnswer: 0
   }
 ];

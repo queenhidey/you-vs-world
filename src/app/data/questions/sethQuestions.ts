@@ -3,92 +3,92 @@ import { Question } from "../contestantControls";
 export const sethQuestions: Question[] = [
   {
     id: 16,
-    question: "What is the chemical symbol for water?",
-    options: ["H2O", "CO2", "O2", "HO2"],
+    question: "What Pokemon evolves into Sharpedo?",
+    options: ["Carvanha", "Feebas", "Luvdisc"],
     correctAnswer: 0
   },
   {
     id: 17,
-    question: "How many bones are in the adult human body?",
-    options: ["196", "206", "216", "226"],
-    correctAnswer: 1
-  },
-  {
-    id: 18,
-    question: "What gas do plants absorb from the atmosphere during photosynthesis?",
-    options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+    question: "How many Pokemon are members of the Legendary Giants (As of Gen VI)?",
+    options: ["5", "4", "3"],
     correctAnswer: 2
   },
   {
-    id: 19,
-    question: "What is the nearest planet to the Sun?",
-    options: ["Venus", "Mercury", "Earth", "Mars"],
+    id: 18,
+    question: "What forest separates two parts of Route 104 in Pokemon Ruby/Sapphire?",
+    options: ["Ilex Forest", "Petalburg Woods", "The roots of Rydel"],
     correctAnswer: 1
   },
   {
+    id: 19,
+    question: "In Pokemon Ruby/Sapphire what do you need to attach to Marill to produce an Azurill in the Day-care Centre?",
+    options: ["Sea Foam", "Blue Incense", "Sea Incense"],
+    correctAnswer: 2
+  },
+  {
     id: 20,
-    question: "What does DNA stand for?",
-    options: ["Deoxyribonucleic Acid", "Dinitrogen Acid", "Dynamic Nuclear Acid", "Deoxy Nuclear Acid"],
+    question: "What is the name of the man who lets Pokemon learn forgotten moves?",
+    options: ["Move Tutor", "Ancient Scholar", "Arcane Teacher"],
     correctAnswer: 0
   },
   {
     id: 21,
-    question: "What is the powerhouse of the cell?",
-    options: ["Nucleus", "Mitochondria", "Ribosome", "Endoplasmic Reticulum"],
-    correctAnswer: 1
-  },
-  {
-    id: 22,
-    question: "What type of bond holds water molecules together?",
-    options: ["Ionic bond", "Covalent bond", "Hydrogen bond", "Metallic bond"],
+    question: "Which Pokemon WON’T have Clear Body as an ability?",
+    options: ["Metang", "Regirock", "Staryu"],
     correctAnswer: 2
   },
   {
+    id: 22,
+    question: "What’s the name of the legendary that is obtainable in Pokemon Black?",
+    options: ["Reshiram", "Kyurem", "Zekrom"],
+    correctAnswer: 0
+  },
+  {
     id: 23,
-    question: "What is the SI unit for electric current?",
-    options: ["Volt", "Watt", "Ampere", "Ohm"],
+    question: "How many Pokemon games were released on DSlite?",
+    options: ["11", "18", "15"],
     correctAnswer: 2
   },
   {
     id: 24,
-    question: "Which scientist developed the theory of relativity?",
-    options: ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Stephen Hawking"],
-    correctAnswer: 1
-  },
-  {
-    id: 25,
-    question: "What is the chemical formula for methane?",
-    options: ["CH4", "C2H6", "CO2", "H2SO4"],
+    question: "What is Victini’s gender?",
+    options: ["Genderless", "Male", "Female"],
     correctAnswer: 0
   },
   {
+    id: 25,
+    question: "Which Pokemon can be found in the Whirl Islands of Pokemon Heart Gold?",
+    options: ["Celebi", "Lugia", "Mew"],
+    correctAnswer: 1
+  },
+  {
     id: 26,
-    question: "What is the Heisenberg Uncertainty Principle?",
-    options: ["Energy cannot be created or destroyed", "You cannot simultaneously know position and momentum precisely", "Time is relative to the observer", "Matter and energy are equivalent"],
+    question: "What is the name of the world home to Giratina?",
+    options: ["Mirror World", "Distortion World", "Torn World"],
     correctAnswer: 1
   },
   {
     id: 27,
-    question: "What is the name of the theoretical boundary around a black hole?",
-    options: ["Photon Sphere", "Event Horizon", "Singularity", "Accretion Disk"],
-    correctAnswer: 1
-  },
-  {
-    id: 28,
-    question: "Which enzyme is responsible for unwinding DNA during replication?",
-    options: ["DNA Polymerase", "Helicase", "Ligase", "Primase"],
-    correctAnswer: 1
-  },
-  {
-    id: 29,
-    question: "What is the half-life of Carbon-14?",
-    options: ["5,730 years", "1,600 years", "10,000 years", "50,000 years"],
+    question: "How many different forms does Rotom have?",
+    options: ["6", "3", "5"],
     correctAnswer: 0
   },
   {
-    id: 30,
-    question: "What particle is exchanged in electromagnetic interactions?",
-    options: ["Gluon", "W Boson", "Photon", "Higgs Boson"],
+    id: 28,
+    question: "What pokemon does Tepig evolve into?",
+    options: ["Grumpig", "Lechonk", "Pignite"],
     correctAnswer: 2
+  },
+  {
+    id: 29,
+    question: "Who is the Champion of the Pokemon League in Pokemon X/Y?",
+    options: ["Cynthia", "Iris", "Diantha"],
+    correctAnswer: 2
+  },
+  {
+    id: 30,
+    question: "Who is the Team Rocket leader in Pokemon Heart Gold/Soul Silver?",
+    options: ["Giovanni", "Archer", "Jessie"],
+    correctAnswer: 0
   }
 ];
