@@ -33,28 +33,19 @@ export default function MenuState({ onStartGame }: MenuStateProps) {
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 flex items-center justify-center p-4">
       <div className="text-center">
         {/* Main game title */}
-        <h1 className="text-6xl font-bold text-white mb-8">
-          THE CHASE
+        <h1 className="text-8xl font-bold text-white mb-8">
+          THE CHASE!
         </h1>
         
-        {/* Game instructions card */}
-        <Card className="max-w-md mx-auto">
-          <h2 className="text-3xl font-semibold text-white mb-6">How to Play</h2>
-          
-          {/* Game rules list */}
-          <ul className="text-white text-left space-y-2 mb-6 text-center">
-            <li>• Answer questions to move forward and catch!</li>
-            <li>• Get questions wrong and the Chaser might catch up!</li>
-            <li>• Reach the end before being caught to win!</li>
-          </ul>
+        
           
           {/* Main action button - centered for visual balance */}
           <div className="flex justify-center">
             <Button variant="danger" size="lg" onClick={onStartGame}>
-              Start The Chase
+              Start
             </Button>
           </div>
-        </Card>
+        
       </div>
     </div>
   );
