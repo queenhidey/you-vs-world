@@ -85,7 +85,7 @@ export default function ManualControls({
           onClick={onPlayerNoAnswer}
           disabled={playerAnswered}
         >
-          Players Didn't Answer ⏭️
+          Players Didn&apos;t Answer ⏭️
         </Button>
         
         <Button 

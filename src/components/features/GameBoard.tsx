@@ -184,7 +184,7 @@ export default function GameBoard({
             )}
           </div>
           {distanceFromChaser > 4 && (
-            <div className="text-green-400 text-md mt-1">You're doing great!</div>
+            <div className="text-green-400 text-md mt-1">You&apos;re doing great!</div>
           )}
           {distanceFromChaser <= 3 && distanceFromChaser > 1 && isGameStarted &&(
             <div className="text-yellow-400 text-md mt-1">Chaser is getting closer...</div>
