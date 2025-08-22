@@ -65,7 +65,7 @@ export default function ManualControls({
         </Button>
         
         <Button variant="info" onClick={onUnadvancePlayer}>
-          Unadvance Players ⬇️
+          Retreat Players ⬇️
         </Button>
         
         <Button variant="danger" onClick={onAdvanceChaser}>
@@ -73,7 +73,7 @@ export default function ManualControls({
         </Button>
         
         <Button variant="warning" onClick={onUnadvanceChaser}>
-          Unadvance Chaser ⬇️
+          Retreat Chaser ⬇️
         </Button>
         
         {/* Visual separator between position controls and skip controls */}
